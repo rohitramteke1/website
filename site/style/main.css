@@ -1,0 +1,41 @@
+.main {
+    position: relative;
+    display: flex;
+}
+.main .left{
+    width: 25%;
+    height: 100%;
+}
+.main .center{
+    width: 50%;
+    height: 100%;
+}
+.main .center .code-content{
+    margin: 10px;
+    padding: 20px;
+    height: 600px;
+    background-color: var(--color-box);
+    font-family: 'Roboto Mono', monospace;
+
+}
+.main .right{
+    width: 25%;
+    height: 100%;
+}
+
+/* @Media Queries 400px */
+@media screen and (max-width: 450px)    {
+    .main {
+        flex-direction: column;
+        width: 100%;
+    }
+    .main .left{
+        width: 100%;
+    }
+    .main .center{
+        width: 100%;
+    }
+    .main .right{
+        width: 100%;
+    }
+}

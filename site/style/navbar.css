@@ -1,0 +1,32 @@
+.navbar {
+    position: relative;
+}
+.navbar ul{
+    display: flex;
+}
+.navbar ul li{
+    list-style: none;
+    padding: 10px;
+    margin: 5px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: var(--color-text2);
+}
+
+/* media query */
+/* @Media Queries 400px */
+@media screen and (max-width: 450px)    {
+    .navbar {
+        
+    }
+    .navbar ul{
+        flex-direction: column;
+    }
+    .navbar ul li{
+        text-align: center;
+    }
+    .navbar ul li a{
+        
+    }
+}
