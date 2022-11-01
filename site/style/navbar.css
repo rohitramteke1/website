@@ -1,6 +1,11 @@
 .navbar {
     position: relative;
 }
+.navbar #theme-toggler{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 .navbar ul{
     display: flex;
 }
