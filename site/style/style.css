@@ -1,4 +1,6 @@
 :root {
+    --color-navtop: rgb(36,41,47);
+    --color-navitems: rgb(36,41,47);
     --color-bg: rgba(19,20,23);
     --color-box: rgba(42,42,44);
     --color-footer: rgba(22,23,29);
@@ -31,7 +33,7 @@ body {
     --color-bg: white;
     --color-box: whitesmoke;
     --color-footer: rgb(227, 217, 217);
-    
+    --color-navitems: rgb(225, 225, 225);
     /* text-color */
     --color-text: black;
     --color-text2: rgb(19, 19, 19);
