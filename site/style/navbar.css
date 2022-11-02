@@ -91,8 +91,23 @@ input:checked + .slider::before{
     margin-bottom: 5px;
 }
 .navbar .nav-items li a{
+    position: relative;
     text-decoration: none;
     color: var(--color-text2);
+    padding-bottom: 5px;
+}
+.navbar .nav-items li a::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--color-hover);
+    transition: 0.3s all ease-in;
+}
+.navbar .nav-items li a:hover:before{
+    width: 100%;
 }
 
 /* media query */
