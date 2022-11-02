@@ -6,6 +6,10 @@
     bottom: 0;
     right: 0;
 }
+.navbar .navtop {
+    position: relative;
+    
+}
 .navbar ul{
     display: flex;
 }
