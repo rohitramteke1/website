@@ -94,7 +94,7 @@ input:checked + .slider::before{
     position: relative;
     text-decoration: none;
     color: var(--color-text2);
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 .navbar .nav-items li a::before{
     content: '';
@@ -104,7 +104,7 @@ input:checked + .slider::before{
     width: 0%;
     height: 3px;
     background-color: var(--color-hover);
-    transition: 0.3s all ease-in;
+    transition: 0.2s all ease-in;
 }
 .navbar .nav-items li a:hover:before{
     width: 100%;
@@ -132,7 +132,7 @@ input:checked + .slider::before{
     .navbar ul li{
         text-align: center;
     }
-    .navbar ul li a{
-        
+    .navbar .nav-items li a{
+        padding-bottom: 10px;
     }
 }
