@@ -24,7 +24,13 @@ navbar
     position: relative;
 }
 .navtop #menu-btn {
+    background-color: #3a3f42;
+    cursor: pointer;
+    padding: 10px;
     display: none;
+}
+#menu-btn i {
+    font-size: 25px;
 }
 .navtop #theme-toggler{
     /* position: absolute;
