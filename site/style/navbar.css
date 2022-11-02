@@ -21,6 +21,7 @@ navbar
     background: var(--color-navtop);
     color: white;
     padding: 20px;
+    position: relative;
 }
 .navtop #menu-btn {
     display: none;
@@ -30,6 +31,48 @@ navbar
     top: 0;
     right: 0; */
 }
+
+/* theme-toggler-btn's */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin: 0 10px;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0096FE;
+    transition: .3s;
+    border-radius: 34px;
+}
+.switch input {display: none;}
+.slider::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 5.5px;
+    bottom: 5px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+input:checked + .slider{
+    background-color: white;
+}
+input:checked + .slider::before{
+    background-color: rgb(30,30,30);
+    transform: translateX(30px);
+}
+/* theme-toggler-ends-here */
+
+
 .navbar .nav-items{
     display: flex;
     flex-direction: row;

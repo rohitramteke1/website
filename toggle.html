@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>site</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            /* background-color: #212329; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 70px;
+            height: 40px;
+            margin: 0 10px;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(30,30,30);
+            transition: .3s;
+            border-radius: 34px;
+        }
+        .switch input {display: none;}
+        .slider::before {
+            content: '';
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            left: 5px;
+            bottom: 5px;
+            background-color: #0096FE;
+            border-radius: 50%;
+            transition: .3s;
+        }
+        input:checked + .slider{
+            background-color: #0096FE;
+        }
+        input:checked + .slider::before{
+            background-color: rgb(30,30,30);
+            transform: translateX(30px);
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+
+    </div>
+    
+</body>
+</html>
