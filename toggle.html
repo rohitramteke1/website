@@ -67,7 +67,7 @@
 </head>
 <body>
     <div class="container">
-
+        <button id="id">Click</button>
         <label class="switch">
             <input type="checkbox" checked>
             <span class="slider"></span>
@@ -81,4 +81,13 @@
     </div>
     
 </body>
+
+<script>
+    $(document).ready(()=> {
+        $('#id').click(()=> {   
+            $(this).load('index.html');
+        })
+    })
+</script>
+
 </html>

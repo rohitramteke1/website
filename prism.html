@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+        .left, .right
+        {
+            width: 25%;
+            height: 100%;
+        }
+        .center
+        {
+            width: 50%;
+            height: 100%;
+        }
+        .code-content h1 {
+            color: royalblue;
+            background-color: black;
+            font-family: 'SF Mono', 'Poppins', sans-serif;
+            padding: 10px;
+            text-align: center;
+        }
+        .code {
+            margin: 10px 5px;
+            padding: 10px;
+            overflow: auto;
+            box-sizing: border-box;
+            width: calc(100%-10px);
+            height: 500px;
+        }
+        @media screen and (max-width: 450px) {
+            .container {
+                flex-direction: column;
+            }
+            .center {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="./prism.css">
+
+</head>
+
+<body class="line-numbers">
+    <div class="container">
+        <div class="left">
+
+        </div>
+        <div class="center" >
+            <div class="code-content">
+                <h1>PRISM is Cool</h1>
+            </div>
+            <div class="code">
+                <pre>
+                    <code class="language-javascript">
+    
+                        // Bubble sort Implementation using Javascript
+                        // Creating the bblSort function
+                        function bblSort(arr){
+                            
+                            for(var i = 0; i < arr.length; i++){
+                                
+                                // Last i elements are already in place
+                                for(var j = 0; j < ( arr.length - i -1 ); j++){
+                                    
+                                    // Checking if the item at present iteration
+                                    // is greater than the next iteration
+                                    if(arr[j] > arr[j+1]){
+                                        // If the condition is true then swap them
+                                        var temp = arr[j]
+                                        arr[j] = arr[j + 1]
+                                        arr[j+1] = temp
+                                    }
+                                }
+                            }
+                            // Print the sorted array
+                            console.log(arr);
+                        }
+                        // This is our unsorted array
+                        var arr = [234, 43, 55, 63, 5, 6, 235, 547];
+                        // Now pass this array to the bblSort() function
+                        bblSort(arr);
+                    </code>
+                </pre>
+            </div>
+            <div class="code">
+                <pre>
+                    <code class="language-python">
+    
+                        # Python program for implementation of Bubble Sort
+                        
+                        def bubbleSort(arr):
+                        n = len(arr)
+                        # optimize code, so if the array is already sorted, it doesn't need
+                        # to go through the entire process
+                        swapped = False
+                        # Traverse through all array elements
+                        for i in range(n-1):
+                        # range(n) also work but outer loop will
+                        # repeat one time more than needed.
+                        # Last i elements are already in place
+                        for j in range(0, n-i-1):
+                        
+                                # traverse the array from 0 to n-i-1
+                                # Swap if the element found is greater
+                                # than the next element
+                                if arr[j] > arr[j + 1]:
+                                swapped = True
+                                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                                
+                                if not swapped:
+                                # if we haven't needed to make a single swap, we
+                                # can just exit the main loop.
+                                return
+                                
+                                
+                                # Driver code to test above
+                                arr = [64, 34, 25, 12, 22, 11, 90]
+                                
+                                bubbleSort(arr)
+                                
+                                print("Sorted array is:")
+                                for i in range(len(arr)):
+                                print("% d" % arr[i], end=" ")
+                                
+                    </code>
+                </pre>
+            </div>
+            <div class="code">
+                <pre>
+                    <code class="language-cpp">
+                            #include "iostream"
+                            #include "queue"
+                            #include "stack"
+                            #include "algorithm"
+                            using namespace std;
+                            
+                            class Node {
+                            public:
+                                Node *left;
+                                Node *right;
+                                int data;
+                                Node() : data(0),left(NULL), right(NULL){}
+                                Node(int data) {
+                                    this->data = data;
+                                    this->left = NULL;
+                                    this->right = NULL;
+                                }
+                            };
+                            
+                            class Tree{
+                                Node* head;
+                            public:
+                                // create and insert node
+                                Node* insertNode(int data) {
+                                    Node* node = new Node(data);
+                                    return node;
+                                }
+                            
+                                // root-left-right
+                                void preOrder(Node* node) {
+                                    Node* temp;
+                                    if (node != NULL)
+                                    {
+                                        cout << node->data << ' ';
+                                        preOrder(node->left);
+                                        preOrder(node->right);
+                                    }
+                                }
+                            
+                                // left-right-root
+                                void postOrder(Node* node) {
+                                    Node* temp;
+                                    if (node != NULL)
+                                    {
+                                        postOrder(node->left);
+                                        postOrder(node->right);
+                                        cout << node->data << ' ';
+                                    }
+                                }
+                            
+                                // left-root-right
+                                void inOrder(Node* node) {
+                                    Node* temp;
+                                    if (node != NULL)
+                                    {
+                                        inOrder(node->left);
+                                        cout << node->data << ' ';
+                                        inOrder(node->right);
+                                    }
+                                }
+                            
+                                // Non recursive traversing of tree
+                                void nonRecursivePreOrder(Node* node) {
+                                    stack<Node* > s;
+                                    s.push(node);
+                                    while (!s.empty())
+                                    {
+                                        Node* currentNode = s.top();
+                                        cout << currentNode->data << ' ';
+                                        s.pop();
+                                        if (currentNode->right != NULL)
+                                            s.push(currentNode->right);
+                            
+                                        if (currentNode->left != NULL)
+                                            s.push(currentNode->left);
+                                    }
+                                }
+                            
+                                void nonRecursivePostOrder(Node* node) {
+                                    stack<Node* > s;
+                                    s.push(node);
+                                    vector<int> v;
+                            
+                                    while (!s.empty())
+                                    {
+                                        Node* currentNode = s.top();
+                                        s.pop();
+                                        v.emplace_back(currentNode->data);
+                            
+                                        if (currentNode->left != NULL)
+                                            s.push(currentNode->left);
+                            
+                                        if (currentNode->right != NULL)
+                                            s.push(currentNode->right);
+                                    }
+                                    // actually all the elements are stored in descending manner so, we'll print
+                                    // it in the reverse order or we can use the stack here
+                                    for (auto i = v.rbegin(); i != v.rend(); i++)
+                                        cout << *i << ' ';
+                                }
+                                
+                                void nonRecursiveInOrder(Node* node) {
+                                    stack<Node* > s; 
+                                    Node* currentNode = node;
+                                        while (currentNode != NULL || !s.empty())
+                                        {
+                                            while (currentNode != NULL)
+                                            {
+                                                s.push(currentNode);
+                                                currentNode = currentNode->left;
+                                            }
+                                            currentNode = s.top();
+                                            s.pop();
+                                            cout << currentNode->data << ' ';
+                                            currentNode = currentNode->right;
+                                        }
+                                    return;
+                                }
+                                
+                                int height(Node* root) {
+                                    if(root == NULL) return 0;
+                            
+                                    int lDepth = height(root->left);
+                                    int rDepth = height(root->right);
+                            
+                                    if(lDepth > rDepth) {
+                                        return lDepth+1;
+                                    } else {
+                                        return rDepth+1;
+                                    }
+                                }
+                            
+                                // level order traversal [Recursive]
+                                void levelOrderTraversal(Node* node) {
+                                    
+                                }
+                            
+                                // non recursive OR levelOrderTraversal
+                                void BFSTraversal(Node* root) {
+                            
+                                    queue<Node *> q;
+                                    q.push(root);
+                                    q.push(NULL);
+                                    while (!q.empty())
+                                    {
+                                        root = q.front();
+                                        if (root == NULL) // print the data level-by-level
+                                        {
+                                            q.pop(); // removes the null and
+                                            if (q.empty())
+                                                return;
+                                            cout << endl;
+                                            q.push(NULL); // at the end of q
+                                            continue;
+                                        }
+                                        cout << root->data << ' ';
+                                        q.pop();
+                                        if(root->left != NULL) {
+                                            q.push(root->left);
+                                        }
+                                        if(root->right != NULL) {
+                                            q.push(root->right);
+                                        }            
+                                    }
+                                }
+                            
+                                void iterativePreOrder(Node* root) {
+                            
+                                    stack< Node* > s;
+                                    Node* node = root;
+                            
+                                    s.push(node);
+                                    while (!s.empty())
+                                    {
+                                        node = s.top();
+                                        s.pop();
+                                        cout << node->data << ' ';
+                                        if(node->right) s.push(node->right);
+                                        if(node->left) s.push(node->left);
+                                    }
+                                }
+                            
+                                void iterativeInOrder(Node* root) {
+                            
+                                    stack< Node* > s;
+                                    Node* node = root;
+                            
+                                    while (node != NULL || !s.empty())
+                                    {
+                                        while(node != NULL) {
+                                            s.push(node);
+                                            node = node->left;
+                                        }
+                                        node = s.top();
+                                        s.pop();
+                                        cout << node->data << ' ';
+                                        node = node->right;
+                                    }
+                                }
+                                
+                                // using 2-stacks
+                                void iterativePostOrder(Node* root) {
+                            
+                                    stack< Node* > s;
+                                    stack<int> out;
+                            
+                                    Node* node = root;
+                                    s.push(root);
+                            
+                                    while (!s.empty())
+                                    {
+                                        node = s.top();
+                                        s.pop();
+                                        out.push(node->data);
+                            
+                                        if(node->left) 
+                                            s.push(node->left);
+                            
+                                        if(node->right)
+                                            s.push(node->right);
+                                    }
+                                    while (!out.empty())
+                                    {
+                                        cout << out.top() << ' ';
+                                        out.pop();
+                                    }
+                                }
+                            
+                                void iterativePostOrderOneStack(Node* root) {
+                            
+                                    stack< Node*> s;
+                                    vector<int> v;
+                                    Node* node = root;
+                            
+                                    s.push(root);
+                            
+                                    while (!s.empty())
+                                    {
+                                        node = s.top();
+                                        s.pop();
+                                        v.emplace_back(node->data);
+                            
+                                        if(node->left) 
+                                            s.push(node->left);
+                            
+                                        if(node->right) 
+                                            s.push(node->right);
+                                    }
+                                    reverse(v.begin(), v.end()); 
+                                    for (auto &&i : v)
+                                        cout << i << ' ';
+                                }
+                            };
+                            
+                            int main()
+                            {
+                                Tree T;
+                                Node* root;
+                            
+                                root = T.insertNode(10);
+                                root->left = T.insertNode(4);
+                                root->right = T.insertNode(14);
+                                root->left->left = T.insertNode(3);
+                                root->left->right = T.insertNode(5);
+                                root->right->left = T.insertNode(13);
+                                root->right->right = T.insertNode(20);
+                                root->right->right->left = T.insertNode(19);
+                                root->right->right->right = T.insertNode(25);
+                            
+                                T.BFSTraversal(root);
+                                cout << endl << "Height: " << T.height(root) << endl;
+                                // T.iterativePreOrder(root);
+                                // cout << endl;
+                                // T.iterativeInOrder(root);
+                                // cout << endl;
+                                // T.iterativePostOrder(root);
+                                // cout << endl;
+                                // T.iterativePostOrderOneStack(root);
+                                // cout << endl;
+                                return 0;
+                            }
+                                
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+
+    <script src="./prism.js"></script>
+    <!-- <script src="./whitespace-prism.js"></script> -->
+</body>
+
+</html>
