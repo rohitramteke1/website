@@ -117,9 +117,10 @@ input:checked + .slider::before{
         
     }
     .navbar .navtop{
-        justify-content: space-around;
+        justify-content:space-between;
         align-items: center;
         padding: 10px;
+        position: relative;
     }
     .navtop #menu-btn {
         padding: 10px;
