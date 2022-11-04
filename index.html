@@ -87,7 +87,7 @@
                     <div class="code-box">
                         <pre>
                             <code class="language-cpp">
-            
+                                <div class="code">
                                 #include "iostream"
                                 using namespace std;
                                 
@@ -123,7 +123,8 @@
                                         cout << i << ' ';    
                                     
                                     return 0;
-                                }      
+                                } 
+                                </div>
                             </code>
                         </pre>
                     </div>
@@ -134,48 +135,44 @@
                     <div class="code-box">
                         <pre>
                             <code class="language-cpp">
-                                
-                                // we assumed that we've sorted and unsorted array 
-                                // we pick up the element from unsorted array and placed into the  
-                                // sorted array at it's correct position
-
+                                <div class="code">
                                 #include "iostream"
                                 using namespace std;
-
-                                void print(int arr[], int size) {
-                                    cout << endl;
-                                    for (int i = 0; i < size; i++)
-                                        cout << arr[i] << ' ';
-                                }
-
-                                void insertionSort(int arr[], int size)
-                                {
-                                    for (int i = 0; i < size; i++)
+                                void insertionSort(vector<int> &arr) {
+                                    for (int i = 0; i < arr.size(); i++)
                                     {
-                                        int key = arr[i];
-                                        int j = i-1;
-                                        while (arr[j] > key && j >= 0)
+                                        int min_idx = i;
+                                        for (int j = i+1; j < arr.size(); j++)
                                         {
-                                            arr[j+1] = arr[j];
-                                            j--;
+                                            if(arr[min_idx] > arr[j]) {
+                                                min_idx = j;
+                                            }
                                         }
-                                        print(arr, size);
-                                        arr[++j] = key;
+                                        if(min_idx != i) 
+                                            swap(arr[min_idx], arr[i]);
+                                        print(arr);
                                     }
                                 }
-
+                                    
                                 int main()
                                 {
-                                    int arr[] = {9, 4, 5, 6, 30, 1, 5};
-                                    // int arr[] = {1,2,3,4,5,6,7};
-
-                                    int n = sizeof(arr) / sizeof(arr[0]);
-
-                                    insertionSort(arr, n);
-                                    // print(arr, n);
+                                    // int arr[] = {9,4,5,6,30,1,5};
+                                    int arr[] = {1,2,3,4,5,6,7};
+                                    // 9 4 5 6 30 1 5 => 6
+                                    // 4 5 6 9 1 5 30 => 5
+                                    // 4 5 6 1 5 9 30 => 4
+                                    // 4 5 1 5 6 9 30 => 3
+                                    // 4 1 5 5 6 9 30 => 2
+                                    // 1 4 5 5 6 9 30 => 1
+                                    int n = sizeof(arr)/sizeof(arr[0]);
+                                
+                                    bubbleSort(arr, n);
+                                    for (auto i : arr)
+                                        cout << i << ' ';    
                                     
                                     return 0;
-                                }    
+                                } 
+                                </div>
                             </code>
                         </pre>
                     </div>
@@ -186,60 +183,126 @@
                     <div class="code-box">
                         <pre>
                             <code class="language-cpp">
-                                
-                                    #include "iostream"
-                                    using namespace std;
-                                    
-                                    template <typename T>
-                                    void swap(T *xp, T *yp)
+                                <div class="code">
+                                #include "iostream"
+                                using namespace std;
+                                void selectionSort(vector<int> &arr) {
+                                    int key;
+                                    for (int i = 1; i < arr.size(); i++)
                                     {
-                                        T temp = *xp;
-                                        *xp = *yp;
-                                        *yp = temp;
-                                    }
-                                    
-                                    template <typename T>
-                                    void print(T arr[], int size) {
-                                        cout << endl;
-                                        for (int i = 0; i < size; i++)
-                                             cout << arr[i] << ' ';
-                                    }
-                                    
-                                    template <typename T=int>
-                                    void selectionSort(T arr[], int size)
-                                    {
-                                        for (int i = 0; i < size - 1; i++)
-                                        {
-                                            int min_idx = i;
-                                            for (int j = i + 1; j < size; j++)
-                                                if (arr[min_idx] > arr[j])
-                                                    min_idx = j;
-                                    
-                                            // swap min_idx element with initial element
-                                    
-                                            if(min_idx != i)
-                                                swap<T>(&arr[min_idx], &arr[i]);
-                                            print<T>(arr, size);
+                                        key = arr[i];
+                                        int j = i-1;
+                                        while(j >= 0 && arr[j] > key) {
+                                            arr[j+1] = arr[j];
+                                            j--;
                                         }
+                                        j++;
+                                        arr[j] = key;
+                                        print(arr);
                                     }
+                                }
                                     
-                                    int main()
+                                int main()
+                                {
+                                    // int arr[] = {9,4,5,6,30,1,5};
+                                    int arr[] = {1,2,3,4,5,6,7};
+                                    // 9 4 5 6 30 1 5 => 6
+                                    // 4 5 6 9 1 5 30 => 5
+                                    // 4 5 6 1 5 9 30 => 4
+                                    // 4 5 1 5 6 9 30 => 3
+                                    // 4 1 5 5 6 9 30 => 2
+                                    // 1 4 5 5 6 9 30 => 1
+                                    int n = sizeof(arr)/sizeof(arr[0]);
+                                
+                                    bubbleSort(arr, n);
+                                    for (auto i : arr)
+                                        cout << i << ' ';    
+                                    
+                                    return 0;
+                                } 
+                                </div>  
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div class="code-content">
+                        <h3>All Three Sorts</h3>
+                    </div>
+                    <div class="code-box">
+                        <pre>
+                            <code class="language-cpp">
+                                <div class="code">
+                                #include "bits/stdc++.h"
+                                using namespace std;
+                                void print(vector<int> &arr);
+                                void bubbleSort(vector<int> &arr) {
+                                    for (int i = 0; i < arr.size()-1; i++)
                                     {
-                                        int arr[] = {9, 4, 5, 6, 30, 1, 5};
-                                        // int arr[] = {1,2,3,4,5,6,7};
-                                        // 9 4 5 6 30 1 5 => 6
-                                        // 1 4 5 6 30 9 5 => 0
-                                        // 1 4 5 6 30 9 5 => 0
-                                        // 1 4 5 5 30 9 5 => 3
-                                        // 1 4 5 5 5 9 30 => 2
-                                        // 1 4 5 5 5 9 30 => 1
-                                    
-                                        int n = sizeof(arr) / sizeof(arr[0]);
-                                    
-                                        selectionSort(arr, n);
-                                        // print(arr, n);
-                                        return 0;
-                                    }  
+                                        for (int j = 0; j < arr.size()-i-1; j++)
+                                        {
+                                            if(arr[j] > arr[j+1]) {
+                                                swap(arr[j], arr[j+1]);
+                                            }
+                                        }
+                                        print(arr);
+                                    }
+                                }
+                                void insertionSort(vector<int> &arr) {
+                                    for (int i = 0; i < arr.size(); i++)
+                                    {
+                                        int min_idx = i;
+                                        for (int j = i+1; j < arr.size(); j++)
+                                        {
+                                            if(arr[min_idx] > arr[j]) {
+                                                min_idx = j;
+                                            }
+                                        }
+                                        if(min_idx != i) 
+                                            swap(arr[min_idx], arr[i]);
+                                        print(arr);
+                                    }
+                                }
+                                void selectionSort(vector<int> &arr) {
+                                    int key;
+                                    for (int i = 1; i < arr.size(); i++)
+                                    {
+                                        key = arr[i];
+                                        int j = i-1;
+                                        while(j >= 0 && arr[j] > key) {
+                                            arr[j+1] = arr[j];
+                                            j--;
+                                        }
+                                        j++;
+                                        arr[j] = key;
+                                        print(arr);
+                                    }
+                                }
+                                void print(vector<int> &arr) {
+                                    cout << endl;
+                                    for (auto &&i : arr)
+                                        cout << i << ' ';
+                                }
+                                int main()
+                                {
+                                    vector<int> arr = {6,5,4,3,2,1};
+                                    // 6 5 4 3 2 1
+
+                                    // 6 5 4 3 2 1
+                                    // 5 6 4 3 2 1
+                                    // 4 5 6 3 2 1 
+                                    // 3 4 5 6 2 1 
+                                    // 2 3 4 5 6 1
+                                    // 1 2 3 4 5 6
+
+                                    print(arr);
+                                    // bubbleSort(arr);
+                                    cout << endl;
+                                    // insertionSort(arr);
+                                    cout << endl;
+                                    selectionSort(arr);
+                                    return 0;
+                                }
+                                </div>  
                             </code>
                         </pre>
                     </div>
