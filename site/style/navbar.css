@@ -119,10 +119,14 @@ input:checked + .slider::before{
     .navbar .navtop{
         justify-content: space-around;
         align-items: center;
-        padding: 20px;
+        padding: 10px;
     }
     .navtop #menu-btn {
+        padding: 10px;
         display: block;
+    }
+    #menu-btn i {
+        font-size: 20px;
     }
     .navbar .nav-items{
         flex-direction: column;
