@@ -22,6 +22,10 @@
 .main .center .code-box{
     margin: 10px;
 }
+.main .center .code-box pre{
+    max-height: 600px;
+    /* height: 300px; */
+}
 
 .main .right{
     width: 25%;
@@ -39,6 +43,9 @@
     }
     .main .center{
         width: 100%;
+    }
+    .main .center .code-box pre{
+        height: 400px;
     }
     .main .right{
         width: 100%;
